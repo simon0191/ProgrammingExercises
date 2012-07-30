@@ -1,4 +1,4 @@
-ProgrammingExercises
+Programming Exercises
 ====================
 
 My solution for some programming exercises
