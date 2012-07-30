@@ -1,7 +1,7 @@
 ProgrammingExercises
 ====================
 
-My solution to some programming exercises
+My solution for some programming exercises
 
 http://uhunt.felix-halim.net/id/49437
 
