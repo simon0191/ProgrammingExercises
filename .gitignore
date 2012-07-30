@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-*.o
+# Executable files
 *.exe
 
-=======
 # Compiled Object files
 *.slo
 *.lo
@@ -15,4 +13,3 @@
 *.lai
 *.la
 *.a
->>>>>>> 8b76b2c3895a26c9526716abb13081a0feaac46f
