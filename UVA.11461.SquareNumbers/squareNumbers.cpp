@@ -27,8 +27,7 @@ using namespace std;
 #define NN 100010
 int main(){
 	bitset<NN> isSquare;
-	int lim = sqrt(NN)+1;
-	for(int i = 0;i<lim;++i){
+	for(int i = 0;i<317;++i){
 	    isSquare[i*i] = true;
 	}
 	int acum[NN];
@@ -40,7 +39,7 @@ int main(){
 	}
 	int a,b;
 	while(scanf("%d%d",&a,&b) && (a+b)){
-	    if(b<a)swap(b,a);
+	    //if(b<a)swap(b,a);
 	    printf("%d\n",acum[b]-acum[a-1]);
 	}
 	return 0;
