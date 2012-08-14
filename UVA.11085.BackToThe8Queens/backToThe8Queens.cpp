@@ -25,10 +25,11 @@
 const int AZ_SIZE = 'Z'-'A'+1;
 
 using namespace std;
+#define NN 8
 
 bool isSolution(const vector<int>& qs){
-    for(int i = 1;i<=8;++i){
-        for(int j = i+1;j<=8;++j){
+    for(int i = 1;i<=NN;++i){
+        for(int j = i+1;j<=NN;++j){
             if( abs(qs[i-1]-qs[j-1]) == abs(i-j))return false;
         }
     }
@@ -36,19 +37,20 @@ bool isSolution(const vector<int>& qs){
 }
 int dif(const vector<int>& qs,const vector<int>& sol){
     int cont = 0;
-    for(int i = 0;i<8;++i){
+    for(int i = 0;i<NN;++i){
         if(qs[i]!=sol[i])++cont;
     }
     return cont;
 }
 int main(){
-    vector<int> qs(8);
-	for(int i = 0;i<8;++i)qs[i] = i+1;
+    vector<int> qs(NN);
+	for(int i = 0;i<NN;++i)qs[i] = i+1;
 	vector<vector<int> > sols;
+	int cont  = 0;
 	do{
 	    if(isSolution(qs))sols.push_back(qs);
 	}while(next_permutation(qs.begin(),qs.end()));
-	//printf("%d\n",sols.size());
+	//printf("%d\n",cont);
 	int c = 1;
 	while(true){
 	    for(int i = 0;i<8;++i){
