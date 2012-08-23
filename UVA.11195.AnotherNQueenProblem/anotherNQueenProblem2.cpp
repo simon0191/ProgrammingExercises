@@ -49,7 +49,6 @@ void countNqueens(short filUsed,int dL,int dR,char j){
     if(j == (n)){
         if(validate()){
             sols[n].push_back(q);
-            cont++;
         }
         return;
     }

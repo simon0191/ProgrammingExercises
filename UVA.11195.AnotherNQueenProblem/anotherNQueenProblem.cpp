@@ -39,31 +39,14 @@ bool validate(){
     }
     return true;
 }
-/*
 void countNqueens(short filUsed,int dL,int dR,char j){
     if(j == (n)){
-        if(validate())cont++;
-        return;
-    }
-    short _filUsed = 1;
-    for(int i = 0;i<n;++i){
-        int _dL = 1<<(n1+j-i);
-        int _dR = 1<<(i+j);
-        if(  (!(filUsed&  _filUsed  )) && (!(dL&_dL)) && (!(dR&_dR)) ){
-            q[j] = i;
-            countNqueens(filUsed|_filUsed,  dL|_dL ,  dR|_dR  ,  j+1  );
-        }
-        _filUsed<<=1;
-    }
-}*/
-
-void countNqueens(short filUsed,int dL,int dR,char j){
-    if(j == (n)){
-        if(validate())cont++;
+        ++cont;
+        //if(validate())cont++;
         return;
     }
     for(char i = 0;i<n;++i){
-        if(  (!(filUsed&  (1<<i)  )) && (!(dL&  (1<<(n1+j-i))  )) && (!(dR& (1<<(i+j)) )) ){
+        if( (!(mat[i]&(1<<j))) && (!(filUsed&  (1<<i)  )) && (!(dL&  (1<<(n1+j-i))  )) && (!(dR& (1<<(i+j)) )) ){
             q[j] = i;
             countNqueens(filUsed|(1<<i),  dL|(1<<(n1+j-i)) ,  dR|(1<<(i+j))  ,  j+1  );
         }
@@ -73,21 +56,17 @@ int main(){
     int act;
     char line[20];
     int c =1;
-    vector<vector<Int> > sols;
 	while(scanf("%d",&n) && n){
-	    getchar();
 	    cont = 0;
 	    n1 = n-1;
 	    for(int i = 0;i<n;++i){
 	        mat[i]=0;
-	        //scanf("%s",line);
+	        scanf("%s",line);
             for(int j = 0;j<n;++j){
-                if(getchar() == '*'){
-                //if(line[j]=='*'){
+                if(line[j]=='*'){
                     mat[i]|=(1<<j);
                 }
             }
-            getchar();
 	    }
         countNqueens(0,0,0,0);
         printf("Case %d: %d\n",c++,cont);
